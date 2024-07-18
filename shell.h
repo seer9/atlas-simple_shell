@@ -16,6 +16,7 @@
 
 /* Prototypes */
 void display_prompt(void);
+void tokenize_input(char *input, char **tokens, char *delims);
 
 
 #endif
