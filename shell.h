@@ -15,6 +15,7 @@
 #define BUFFER_SIZE 1024
 
 /* Prototypes */
+void display_prompt(void);
 
 
 #endif
