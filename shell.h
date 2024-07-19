@@ -13,10 +13,12 @@
 #include <stdarg.h>
 
 #define BUFFER_SIZE 1024
+#define DELIM " \t\n" /* delimiters for tokenizing input */
 
 /* Prototypes */
+void init_shell(char **env_list, char **path, char **path_array);
 void display_prompt(void);
+int read_input(char **input, size_t *input_size);
 void tokenize_input(char *input, char **tokens, char *delims);
-
 
 #endif
