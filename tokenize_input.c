@@ -1,6 +1,6 @@
 #include "shell.h"
 
-/* tokenize_input: tokenize input string */
+/* tokenize_input: tokenize input string
  * @input: input string
  * @tokens: array of tokens
  * @delims: delimiters
