@@ -2,9 +2,9 @@
 
 ## Contents
 
-[Synopsis](#synopsis)
-[Description](#description)
-[Authors](#authors)
+[Synopsis](#synopsis)<br>
+[Description](#description)<br>
+[Authors](#authors)<br>
 
 ## Synopsis
 
