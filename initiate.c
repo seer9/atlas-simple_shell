@@ -2,7 +2,7 @@
 
 /**
  * init_shell - initializes shell environment and finds PATH
- * @env_list: ptr to array of shell environment variables
+ * @env_list: ptr to env variables
  * @path: ptr to PATH string
  * @path_array: ptr to array of PATH directories
  * 
@@ -12,7 +12,7 @@
 void init_shell(char **env_list, char **path, char **path_array)
 {
        int pcounter; /* counter for path_array */
-       char *path_env; /* pointer to PATH env variable */
+       char *path_env = NULL; /* pointer to PATH env variable */
 
        for (pcounter = 0; env_list[pcounter] != NULL; pcounter++) /* go through env_list */
        {
@@ -22,8 +22,6 @@ void init_shell(char **env_list, char **path, char **path_array)
                      break; /* break once PATH is found */
               }
        }
-
        *path = path_env; /* store PATH */
-
-       tokenize_input(path_env, path_array, ":"); /* tokenize PATH */
+       tokenize_input(path_env, path_array); /* tokenize PATH */
 }
