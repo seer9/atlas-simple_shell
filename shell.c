@@ -9,7 +9,6 @@
 void TSSHELLIOT(void)
 {
 	char *input = NULL; /* pointer to input string */
-	size_t input_size = 0; /* size of input string */
 	char **tokens = NULL; /* array of split input tokens */
 	int token_count; /* number of tokens in input */
 
@@ -22,11 +21,11 @@ void TSSHELLIOT(void)
 			exit(EXIT_FAILURE); /* burn it down */
 		}
 		display_prompt(); /* call display_prompt */
-		read_input(&input, &input_size); /* call read_input */
-		if (read_input(&input, &input_size) == -1) /* if read fails */
+		input = read_input(); /* call read_input */
+		if (input == NULL) /* if failed or EOF */
 		{
 			free_mem(input, tokens); /* set it free */
-			exit(EXIT_FAILURE); /* burn it down */
+			exit(EXIT_SUCCESS); /* burn it down */
 		}
 		token_count = tokenize_input(input, tokens); /* call tokenize_input */
 		if (token_count == -1) /* if tokenization fails */
@@ -34,3 +33,5 @@ void TSSHELLIOT(void)
 			free_mem(input, tokens); /* set it free */
 			exit(EXIT_FAILURE); /* burn it down */
 		}
+	}
+}
