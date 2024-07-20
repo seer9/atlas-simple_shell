@@ -17,6 +17,7 @@
 #define DELIM " \t\n" /* delimiters for tokenizing input */
 
 /* Prototypes */
+void TSSHELLIOT(void);
 void init_shell(char **env_list, char **path, char **path_array);
 void display_prompt(void);
 int read_input(char **input, size_t *input_size);
