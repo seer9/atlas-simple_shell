@@ -22,5 +22,6 @@ void init_shell(char **env_list, char **path, char **path_array);
 void display_prompt(void);
 int read_input(char **input, size_t *input_size);
 int tokenize_input(char *input, char **tokens);
+void free_mem(char *input, char **tokens);
 
 #endif
