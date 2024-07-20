@@ -25,3 +25,5 @@ void init_shell(char **env_list, char **path, char **path_array)
        *path = path_env; /* store PATH */
        tokenize_input(path_env, path_array); /* tokenize PATH */
 }
+
+/* is this function even necessary given the parameters?? */
