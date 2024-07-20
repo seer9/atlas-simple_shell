@@ -14,7 +14,7 @@
 
 #define BUFFER_SIZE 1024
 #define TOK_SIZE 128
-#define DELIM " \t\n" /* delimiters for tokenizing input */
+#define DELIM " \t\n:" /* delimiters for tokenizing input */
 
 /* Prototypes */
 void TSSHELLIOT(void);
