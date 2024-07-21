@@ -21,7 +21,8 @@ void TSSHELLIOT(void);
 void init_shell(char **env_list, char **path, char **path_array);
 void display_prompt(void);
 char *read_input(void);
-int tokenize_input(char *input, char **tokens);
+int tokenize_input(char *input, char ***tokens);
+int handle_builtins(char **tokens);
 void free_mem(char *input, char **tokens);
 
 #endif
