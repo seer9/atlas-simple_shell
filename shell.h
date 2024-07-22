@@ -12,9 +12,11 @@
 #include <sys/stat.h>
 #include <stdarg.h>
 
-#define BUFFER_SIZE 1024
-#define TOK_SIZE 128
+#define BUFFER_SIZE 1024 /* buffer size for getline */
+#define TOK_SIZE 128 /* buffer size for tokens */
 #define DELIM " \t\n:" /* delimiters for tokenizing input */
+
+extern char **environ; /* environment variables */
 
 /* Prototypes */
 void TSSHELLIOT(void);
