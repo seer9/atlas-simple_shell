@@ -2,12 +2,13 @@
 
 /**
  * handle_builtins - checks if command is a builtin and executes it
+ * @input: input string
  * @tokens: array of split input tokens
  *
  * Return: 1 if builtin found and executed, 0 if not
  */
 
-int handle_builtins(char **tokens)
+int handle_builtins(char *input, char **tokens)
 {
 	if (tokens[0] == NULL) /* if there's no input */
 		return (0); /* indicate nothing I guess */
