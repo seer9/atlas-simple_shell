@@ -12,10 +12,8 @@ int execute(char **tokens)
 	pid_t child_pid; /* process id for child */
 	int status; /* status of child process */
 	char *executable = NULL; /* pointer to executable */
-
 	if (tokens[0] == NULL) /* if no input */
 		return (-1); /* indicate failure */
-
 	if (strchr(tokens[0], '/') != NULL) /* if command specifies path */
 	{
 		executable = strdup(tokens[0]); /* duplicate command */
