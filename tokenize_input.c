@@ -23,7 +23,7 @@ int tokenize_input(char *input, char ***tokens)
 		(*tokens)[token_counter] = strdup(token); /* store token in array */
 		if ((*tokens)[token_counter] == NULL) /* if strdup fails */
 		{
-			for (i = 0; i < token_counter; i++) /* loop already malloc'd tokens */
+			for (i = 0; i < token_counter; i++) /* already malloc'd tokens */
 				free((*tokens)[i]); /* free each token */
 
 			free(*tokens); /* free the array itself */

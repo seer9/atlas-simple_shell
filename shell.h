@@ -19,7 +19,7 @@
 extern char **environ; /* environment variables */
 
 /* Prototypes */
-void TSSHELLIOT(void);
+int main(void);
 void init_shell(char **env_list, char **path, char **path_array);
 void display_prompt(void);
 char *read_input(void);
