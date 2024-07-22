@@ -14,7 +14,7 @@ int handle_builtins(char **tokens)
 
 	if (strcmp(tokens[0], "exit") == 0) /* if input is "exit" */
 	{
-		free_mem(*tokens, NULL); /* free whatever memory is left */
+		free_mem(input, tokens); /* free all memory */
 		exit(EXIT_SUCCESS); /* exit gracefully */
 	}
 
