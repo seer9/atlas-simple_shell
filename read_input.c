@@ -2,7 +2,7 @@
 
 /**
  * read_input - reads, measures, and stores input string
- * 
+ *
  * Return: pointer to input string (or NULL on EOF or error)
  */
 

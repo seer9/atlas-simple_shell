@@ -2,7 +2,7 @@
 
 /**
  * display_prompt - displays shell prompt
- * 
+ *
  * Return: void
  */
 
