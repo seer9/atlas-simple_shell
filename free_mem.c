@@ -10,8 +10,6 @@
 
 void free_mem(char *input, char **tokens)
 {
-	int i; /* counter for token array */
-
 	if (input != NULL) /* if input string exists */
 		free(input); /* free input string */
 
