@@ -15,12 +15,11 @@ char *read_input(void)
 	input_len = getline(&input, &input_size, stdin); /* get input */
 	if (input_len == -1) /* if getline fails or EOF */
 	{
-		free_mem(input, NULL); /* free input string */
+		free(input); /* free buffer */
 		return (NULL); /* indicate failure/EOF */
 	}
 	if (input[input_len - 1] == '\n') /* if input ends in a new line */
-	{
 		input[input_len - 1] = '\0'; /* replace that with a null byte */
-	}
+
 	return (input); /* return input string */
 }
