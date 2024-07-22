@@ -3,7 +3,7 @@
 /**
  * find_executable - searches for executable in PATH
  * @command: command user is trying to execute
- * 
+ *
  * Return: full path to executable if found, NULL if not
  */
 
