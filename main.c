@@ -2,7 +2,7 @@
 
 /**
  * main - displays prompt, reads input,
- * tokenizes input, and executes commands 
+ * tokenizes input, and executes commands
  *
  * Return: 0 on success
  */

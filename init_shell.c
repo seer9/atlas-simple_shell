@@ -5,7 +5,7 @@
  * @env_list: ptr to env variables
  * @path: ptr to PATH string
  * @path_array: ptr to array of PATH directories
- * 
+ *
  * Return: void
  */
 
