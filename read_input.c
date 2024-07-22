@@ -15,7 +15,7 @@ char *read_input(void)
 	input_len = getline(&input, &input_size, stdin); /* get input */
 	if (input_len == -1) /* if getline fails or EOF */
 	{
-		free(input); /* free input buffer */
+		free_mem(input, NULL); /* free input string */
 		return (NULL); /* indicate failure/EOF */
 	}
 	if (input[input_len - 1] == '\n') /* if input ends in a new line */
