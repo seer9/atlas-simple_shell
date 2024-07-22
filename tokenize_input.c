@@ -15,8 +15,10 @@ int tokenize_input(char *input, char ***tokens)
 
 	*tokens = malloc(64 * sizeof(char *)); /* malloc for input array */
 	if (*tokens == NULL) /* if malloc fails */
+	{
+		free(*tokens); /* free the array */
 		return (-1); /* indicate failure */
-
+	}
 	token = strtok(input, DELIM); /* split input (DELIM set in shell.h) */
 	while (token != NULL) /* loop through input string */
 	{
