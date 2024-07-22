@@ -33,6 +33,8 @@ int main(void)
 			free_mem(input, tokens); /* set it free */
 			continue; /* wait for next command */
 		}
+		execute(tokens); /* call execute */
+		free_mem(input, tokens); /* set it free */
 	}
-	return (0); /* return success */
+	return (0); /* exit success */
 }
