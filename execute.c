@@ -11,15 +11,23 @@ int execute(char **tokens)
 {
 	pid_t child_pid; /* process id for child */
 	int status; /* status of child process */
-	char *executable; /* pointer to executable */
+	char *executable = NULL; /* pointer to executable */
 
 	if (tokens[0] == NULL) /* if no input */
 		return (-1); /* indicate failure */
 
-	executable = find_executable(tokens[0]); /* find executable */
+	if (strchr(tokens[0], '/') != NULL) /* if command specifies path */
+	{
+		executable = strdup(tokens[0]); /* duplicate command */
+		if (executable == NULL) /* if strdup fails */
+			return (-1); /* indicate failure */
+	}
+	else
+		executable = find_executable(tokens[0]); /* find command in PATH */
+
 	if (executable == NULL) /* if not found */
 		return (-1); /* indicate failure */
-	
+
 	child_pid = fork(); /* create child process */
 	if (child_pid == -1) /* if fork fails */
 	{
