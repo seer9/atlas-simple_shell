@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * TSSHELLIOT - displays prompt, reads input,
+ * main - displays prompt, reads input,
  * tokenizes input, and executes commands 
  *
- * Return: void
+ * Return: 0 on success
  */
 
-void TSSHELLIOT(void)
+int main(void)
 {
 	char *input = NULL; /* pointer to input string */
 	char **tokens = NULL; /* array of split input tokens */
@@ -28,5 +28,11 @@ void TSSHELLIOT(void)
 			free_mem(input, tokens); /* set it free */
 			exit(EXIT_FAILURE); /* burn it down */
 		}
+		if (handle_builtins(tokens)) /* call handle_builtins */
+		{
+			free_mem(input, tokens); /* set it free */
+			continue; /* wait for next command */
+		}
 	}
+	return (0); /* return success */
 }
