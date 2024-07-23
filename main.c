@@ -19,14 +19,13 @@ int main(void)
 		input = read_input(); /* call read_input */
 		if (input == NULL) /* if failed or EOF */
 		{
-			free_mem(input, tokens); /* set it free */
+			free_mem(NULL, tokens); /* set it free */
 			exit(EXIT_SUCCESS); /* exit gracefully */
 		}
 		token_count = tokenize_input(input, &tokens); /* call tokenize_input */
 		if (token_count == -1) /* if tokenization fails */
 		{
-			free(input); /* free input only if no tokens array */
-			free_mem(NULL, tokens); /* free tokens array if it exists */
+			free_mem(input, tokens); /* free tokens array if it exists */
 			continue; /* wait for next command */
 		}
 		if (handle_builtins(input, tokens) == 1) /* call handle_builtins */
