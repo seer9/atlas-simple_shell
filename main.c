@@ -26,7 +26,7 @@ int main(void)
 		if (token_count == -1) /* if tokenization fails */
 		{
 			free_mem(input, tokens); /* set it free */
-			continue; /* wait for next command */
+			exit(EXIT_FAILURE); /* burn it down */
 		}
 		if (handle_builtins(input, tokens) == 1) /* call handle_builtins */
 		{
