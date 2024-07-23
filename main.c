@@ -25,10 +25,10 @@ int main(void)
 		token_count = tokenize_input(input, &tokens); /* call tokenize_input */
 		if (token_count == -1) /* if tokenization fails */
 		{
-			free_mem(input, tokens); /* set it free */
-			exit(EXIT_FAILURE); /* burn it down */
+			free(input); /* free input only if no tokens array */
+			continue; /* wait for next command */
 		}
-		if (handle_builtins(input, tokens) == 0) /* call handle_builtins */
+		if (handle_builtins(input, tokens) == 1) /* call handle_builtins */
 		{
 			free_mem(input, tokens); /* set it free */
 			continue; /* wait for next command */
