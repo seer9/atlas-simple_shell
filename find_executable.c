@@ -21,7 +21,8 @@ char *find_executable(char *command)
 			break; /* stop looking */
 		}
 	}
-	if (!path || !(path_dup = strdup(path))) /* if PATH not found or strdup fails */
+	path_dup = strdup(path); /* duplicate PATH */
+	if (!path || !path_dup) /* if PATH not found or strdup fails */
 		return (NULL); /* return NULL */
 	dir = strtok(path_dup, ":"); /* split PATH into usable strings */
 	while (dir != NULL) /* loop through each directory */
