@@ -9,19 +9,20 @@
 
 char *find_executable(char *command)
 {
-	char *path = NULL; /* pointer to PATH environment variable */
-	char *path_dup = NULL; /* duplicate of PATH */
-	char *dir = NULL; /* pointer to each directory in the PATH */
-	char *full_path = NULL; /* full path to executable */
+	/* ptrs to PATH, dup of PATH, each directory, full path */
+	char *path = NULL, *path_dup = NULL, *dir = NULL, *full_path = NULL;
+	size_t path_len = 5, i ; /* length of PATH, path counter */
 
-	path = getenv("PATH"); /* get the PATH environment variable */
-	if (path == NULL) /* if PATH is not set */
-		return (NULL); /* fail */
-
-	path_dup = strdup(path); /* duplicate the PATH for strtok */
-	if (path_dup == NULL) /* if that fails */
-		return (NULL); /* say so */
-
+	for (i = 0; environ[i] != NULL; i++) /* loop through environment variables */
+	{
+		if (strncmp(environ[i], "PATH=", path_len) == 0) /* if variable is PATH */
+		{
+			path = environ[i] + path_len; /* point to the start of the PATH */
+			break; /* stop looking */
+		}
+	}
+	if (!path || !(path_dup = strdup(path))) /* if PATH not found or strdup fails */
+		return (NULL); /* return NULL */
 	dir = strtok(path_dup, ":"); /* split PATH into usable strings */
 	while (dir != NULL) /* loop through each directory */
 	{
