@@ -26,6 +26,7 @@ int main(void)
 		if (token_count == -1) /* if tokenization fails */
 		{
 			free(input); /* free input only if no tokens array */
+			free_mem(tokens, NULL); /* free tokens array if it exists */
 			continue; /* wait for next command */
 		}
 		if (handle_builtins(input, tokens) == 1) /* call handle_builtins */
