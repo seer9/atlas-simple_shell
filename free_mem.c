@@ -24,7 +24,6 @@ void free_mem(char *input, char **tokens)
 			if (tokens[i] != NULL) /* check for double free */
 			{
 				free(tokens[i]); /* free each token */
-				tokens[i] = NULL; /* NULLify the array */
 			}
 		}
 		free(tokens); /* free token array */
