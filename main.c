@@ -26,10 +26,9 @@ int main(void)
 		if (token_count == -1) /* if tokenization fails */
 		{
 			free(input); /* free input only if no tokens array */
-			free_mem(*tokens, NULL); /* free tokens array if it exists */
-			exit(EXIT_FAILURE); /* burn it down */
+			continue; /* wait for next command */
 		}
-		if (handle_builtins(input, tokens) == -1) /* call handle_builtins */
+		if (handle_builtins(input, tokens) == 1) /* call handle_builtins */
 		{
 			free_mem(input, tokens); /* set it free */
 			continue; /* wait for next command */
@@ -37,7 +36,7 @@ int main(void)
 		if (execute(tokens) == -1) /* call execute */
 		{
 			free_mem(input, tokens); /* set it free */
-			exit(EXIT_FAILURE); /* burn it down */
+			continue; /* wait for next command */
 		}
 		free_mem(input, tokens); /* set it free */
 	}
