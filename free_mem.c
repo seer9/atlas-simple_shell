@@ -10,18 +10,18 @@
 
 void free_mem(char *input, char **tokens)
 {
-	if (input != NULL) /* if input string exists */
-		free(input); /* free input string */
+	int i; /* counter for freeing tokens */
 
+	if (input != NULL) /* if input string exists */
+	{
+		free(input); /* free input string */
+		tokens = NULL; /* NULLify the array */
+	}
 	if (tokens != NULL) /* if token array exists */
 	{
-		char **temp_tokens = tokens; /* pointer to token array */
-
-		while (*temp_tokens != NULL) /* loop through token array */
-		{
-			free(*temp_tokens); /* free each token */
-			temp_tokens++; /* move to next token */
-		}
+		for (i = 0; tokens[i] != NULL; i++) /* loop through array */
+			free(tokens[i]); /* free each token */
 		free(tokens); /* free token array */
+		tokens = NULL; /* NULLify the array */
 	}
 }
