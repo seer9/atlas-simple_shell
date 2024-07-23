@@ -27,6 +27,6 @@ int tokenize_input(char *input, char ***tokens);
 int handle_builtins(char *input, char **tokens);
 char *find_executable(char *command);
 int execute(char **tokens);
-void free_mem(char **input, char ***tokens);
+void free_mem(char *input, char **tokens);
 
 #endif
