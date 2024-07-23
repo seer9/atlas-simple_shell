@@ -33,5 +33,10 @@ int tokenize_input(char *input, char ***tokens)
 		token = strtok(NULL, DELIM); /* move to next token in string */
 	}
 	(*tokens)[token_counter] = NULL; /* null-terminate the array */
+	
+	for (i = 0; i < token_counter; i++) /* free each token */
+		free((*tokens)[i]);
+	free(*tokens); /* free the array itself */
+	*tokens = NULL; /* NULLify the array */
 	return (token_counter); /* return number of tokens */
-}
+	}
