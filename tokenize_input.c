@@ -24,9 +24,8 @@ int tokenize_input(char *input, char ***tokens)
 		{
 			for (i = 0; i < token_counter; i++) /* already malloc'd tokens */
 				free((*tokens)[i]); /* free each token */
-
 			free(*tokens); /* free the array itself */
-			tokens = NULL; /* NULLify the array */
+			*tokens = NULL; /* NULLify the array */
 			return (-1); /* indicate failure */
 		}
 		token_counter++; /* increment counter */
