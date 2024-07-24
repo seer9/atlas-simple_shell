@@ -30,13 +30,8 @@ int main(void)
 		}
 		if (handle_builtins(input, tokens) == 0) /* call handle_builtins */
 		{
-			free_mem(input, tokens); /* set it free */
-			continue; /* wait for next command */
-		}
-		if (execute(tokens) == -1) /* call execute */
-		{
-			free_mem(input, tokens); /* set it free */
-			continue; /* wait for next command */
+			if (execute(tokens) == -1) /* call execute */
+				continue; /* wait for next command */
 		}
 		free_mem(input, tokens); /* set it free */
 	}
