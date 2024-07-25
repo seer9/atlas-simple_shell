@@ -18,10 +18,7 @@ int main(void)
 		display_prompt(); /* call display_prompt */
 		input = read_input(); /* call read_input */
 		if (input == NULL) /* if failed or EOF */
-		{
-			free_mem(input, tokens); /* set it free */
 			exit(EXIT_SUCCESS); /* exit gracefully */
-		}
 		token_count = tokenize_input(input, &tokens); /* call tokenize_input */
 		if (token_count == -1) /* if tokenization fails */
 		{
