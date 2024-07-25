@@ -18,7 +18,7 @@ char *read_input(void)
 		free(input); /* free buffer */
 		return (NULL); /* indicate failure/EOF */
 	}
-	if (input_len > 0 && input[input_len - 1] == '\n') /* if input ends in a new line */
+	if (input_len > 0 && input[input_len - 1] == '\n') /* if new line */
 		input[input_len - 1] = '\0'; /* replace that with a null byte */
 
 	return (input); /* return input string */
