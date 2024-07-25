@@ -4,6 +4,7 @@
  * handle_builtins - checks if command is a builtin and executes it
  * @input: input string
  * @tokens: array of split input tokens
+ * @last_status: exit status of last command
  *
  * Return: 1 if builtin found and executed, 0 if not
  */
