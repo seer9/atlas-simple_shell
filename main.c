@@ -12,6 +12,7 @@ int main(void)
 	char *input = NULL; /* pointer to input string */
 	char **tokens = NULL; /* array of split input tokens */
 	int token_count; /* number of tokens in input */
+	int last_status = 0; /* exit status of last command */
 
 	while (1) /* infinite looooooop */
 	{
@@ -25,9 +26,10 @@ int main(void)
 			free_mem(input, tokens); /* set it free */
 			continue; /* wait for next command */
 		}
-		if (handle_builtins(input, tokens) == 0) /* call handle_builtins */
+		if (handle_builtins(input, tokens, last_status) == 0) /* call handle_builtins */
 		{
-			if (execute(tokens) == -1) /* call execute */
+			last_status = execute(tokens); /* call execute */
+			if (last_status == -1) /* if execution fails */
 			{
 				free_mem(input, tokens); /* set it free */
 				continue; /* wait for next command */
