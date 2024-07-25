@@ -16,17 +16,11 @@ int execute(char **tokens)
 	if (tokens[0] == NULL) /* if no input */
 		return (-1); /* indicate failure */
 	if (strchr(tokens[0], '/') != NULL) /* if command specifies path */
-	{
 		executable = strdup(tokens[0]); /* duplicate command */
-		if (executable == NULL) /* if strdup fails */
-			return (-1); /* indicate failure */
-	}
 	else
-	{
 		executable = find_executable(tokens[0]); /* find command in PATH */
-		if (executable == NULL) /* if not found */
-			return (-1); /* indicate failure */
-	}
+	if (executable == NULL) /* if not found */
+		return (127); /* return error code */
 	child_pid = fork(); /* create child process */
 	if (child_pid == -1) /* if fork fails */
 	{
@@ -38,7 +32,7 @@ int execute(char **tokens)
 		if (execve(executable, tokens, environ) == -1) /* execute command */
 		{
 			free(executable); /* free executable */
-			exit(EXIT_FAILURE); /* exit child process */
+			exit(126); /* exit with error code */
 		}
 	}
 	else /* for parent process */
@@ -48,5 +42,5 @@ int execute(char **tokens)
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status)); /* until done */
 	}
 	free(executable); /* free executable */
-	return (0); /* indicate success */
+	return (WIFEXITED(status) ? WEXITSTATUS(status) : -1); /* return status */
 }
