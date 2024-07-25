@@ -8,17 +8,19 @@
  * Return: 1 if builtin found and executed, 0 if not
  */
 
-int handle_builtins(char *input, char **tokens)
+int handle_builtins(char *input, char **tokens, int last_status)
 {
-	if (tokens[0] == NULL) /* if there's no input */
-		return (0); /* indicate nothing I guess */
+	int exit_status = last_status; /* set exit status to last status */
 
+	if (tokens[0] == NULL) /* if there's no input */
+		return (0); /* indicate no builtin found */
 	if (strcmp(tokens[0], "exit") == 0) /* if input is "exit" */
 	{
+		if (tokens[1] != NULL) /* if exit status is provided */
+			exit_status = atoi(tokens[1]); /* convert to int */
 		free_mem(input, tokens); /* free all memory */
-		exit(EXIT_SUCCESS); /* exit gracefully */
+		exit(exit_status); /* exit gracefully */
 	}
-
 	else if (strcmp(tokens[0], "env") == 0) /* if input is "env" */
 	{
 		char **env = environ; /* pointer to environment variables */
@@ -30,6 +32,5 @@ int handle_builtins(char *input, char **tokens)
 		}
 		return (1); /* indicate builtin found and executed */
 	}
-
 	return (0); /* indicate no builtin found */
 }
