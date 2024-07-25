@@ -27,7 +27,7 @@ char *find_executable(char *command)
 	dir = strtok(path_dup, ":"); /* split PATH into usable strings */
 	while (dir != NULL) /* loop through each directory */
 	{
-		full_path = malloc(strlen(dir) + strlen(command) + 2); /* for full path */
+		full_path = malloc(strlen(dir) + 1 + strlen(command) + 1); /* full path */
 		if (full_path == NULL) /* if malloc fails */
 		{
 			free(path_dup); /* free the duplicate PATH */
