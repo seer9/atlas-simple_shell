@@ -26,7 +26,7 @@ int main(void)
 			free_mem(input, tokens); /* set it free */
 			continue; /* wait for next command */
 		}
-		if (handle_builtins(input, tokens, last_status) == 0) /* call handle_builtins */
+		if (handle_builtins(input, tokens, last_status) == 0) /* builtins */
 		{
 			last_status = execute(tokens); /* call execute */
 			if (last_status == -1) /* if execution fails */
