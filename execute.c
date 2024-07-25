@@ -22,10 +22,11 @@ int execute(char **tokens)
 			return (-1); /* indicate failure */
 	}
 	else
+	{
 		executable = find_executable(tokens[0]); /* find command in PATH */
-
-	if (executable == NULL) /* if not found */
-		return (-1); /* indicate failure */
+		if (executable == NULL) /* if not found */
+			return (-1); /* indicate failure */
+	}
 	child_pid = fork(); /* create child process */
 	if (child_pid == -1) /* if fork fails */
 	{
