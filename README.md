@@ -17,6 +17,7 @@ T.S. SHELLiot implements a simple command-line shell that mimics basic Unix shel
 
 ## Flowchart
 
+```mermaid
 flowchart TD
 	A[Start Shell] --> B[Initialize Variables]
 	B --> C[Begin Loop]
@@ -108,6 +109,7 @@ flowchart TD
 	T --> C
 	X --> C
 	Y --> C
+```
 
 ## Authors
 
