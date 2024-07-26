@@ -39,11 +39,11 @@ flowchart TB
 	R --> S{Fork Success?}
 	S -- No --> T[Free/Error/Continue]
 	S -- Yes --> U{Child Process Success?}
-	U -- Yes --> Z[Parent Waits]
+	U -- Yes --> V[Execute Command]
 	V --> W{Execution Success?}
 	W -- No --> X[Free/Error/Continue]
 	W -- Yes --> Y[SUCCESSFUL COMMAND EXECUTION]
-	U -- No --> V[Execute]
+	U -- No --> Z[Parent Waits]
 	Z --> AA[Free/Update Status/Continue]
 	AA --> C
 	J --> C
