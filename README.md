@@ -62,7 +62,7 @@ flowchart TB
 	P -- Yes --> R[Fork Process]
 	R --> S{Fork Success?}
 	S -- No --> T[Free/Error/Continue]
-	S -- Yes --> U{Child Process?}
+	S -- Yes --> U{Execve Success?}
 	U -- Yes --> Z[Execute Command]
 	Z --> W{Execution Success?}
 	W -- No --> X[Free/Error/Continue]
