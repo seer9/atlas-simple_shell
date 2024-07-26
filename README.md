@@ -65,10 +65,10 @@ flowchart TB
 	S -- Yes --> U{Child Process?}
 	U -- Yes --> Z[Execute Command]
 	Z --> W{Execution Success?}
-	W -- No --> X[Free/Error/Exit]
-	W -- Yes --> Y[SUCCESSFUL COMMAND EXECUTION]
+	W -- No --> X[Free/Error/Continue]
+	W -- Yes --> Y[Free/SUCCESS/Continue]
 	U -- No --> V[Parent Waits for Child]
-	V --> AA[Free/Update Status/Continue]
+	V --> AA[Free/Status/Continue]
 	AA --> C
 	J --> C
 	N --> C
