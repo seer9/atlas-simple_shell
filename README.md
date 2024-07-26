@@ -114,6 +114,3 @@ flowchart TD
 [@internashionalist](https://github.com/internashionalist/internashionalist/blob/main/README.md)
 
 [@seer9]()
-
-
-[def]: #flowchart
