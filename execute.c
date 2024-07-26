@@ -10,17 +10,17 @@
 int execute(char **tokens)
 {
 	pid_t child_pid; /* process id for child */
-	int status; /* status of child process */
-	char *executable = NULL; /* pointer to executable */
+	int status; /* termination status of child process */
+	char *executable = NULL; /* pointer to path of executable */
 
-	if (tokens[0] == NULL) /* if no input */
+	if (tokens[0] == NULL) /* if no command */
 		return (-1); /* indicate failure */
 	if (strchr(tokens[0], '/') != NULL) /* if command specifies path */
 		executable = strdup(tokens[0]); /* duplicate command */
 	else
 		executable = find_executable(tokens[0]); /* find command in PATH */
 	if (executable == NULL) /* if not found */
-		return (127); /* return error code */
+		return (127); /* indicate command not found */
 	child_pid = fork(); /* create child process */
 	if (child_pid == -1) /* if fork fails */
 	{
@@ -29,18 +29,18 @@ int execute(char **tokens)
 	}
 	if (child_pid == 0) /* if fork succeeds */
 	{
-		if (execve(executable, tokens, environ) == -1) /* execute command */
+		if (execve(executable, tokens, environ) == -1) /* replace child w command */
 		{
-			free(executable); /* free executable */
-			exit(126); /* exit with error code */
+			free(executable); /* if execve fails, free executable */
+			exit(126); /* exit and indicate execution failure */
 		}
 	}
 	else /* for parent process */
 	{
 		do {
 			waitpid(child_pid, &status, WUNTRACED); /* wait for child */
-		} while (!WIFEXITED(status) && !WIFSIGNALED(status)); /* until done */
+		} while (!WIFEXITED(status) && !WIFSIGNALED(status)); /* until exited */
 	}
 	free(executable); /* free executable */
-	return (WIFEXITED(status) ? WEXITSTATUS(status) : -1); /* return status */
+	return (WIFEXITED(status) ? WEXITSTATUS(status) : -1); /* get exit status or -1 */
 }
