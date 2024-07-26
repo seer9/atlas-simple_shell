@@ -5,7 +5,7 @@
 [Synopsis](#synopsis)<br>
 [Description](#description)<br>
 [Authors](#authors)<br>
-[Flowchart][#flowchart]<br>
+[Flowchart](#flowchart)<br>
 
 ## Synopsis
 
@@ -23,11 +23,11 @@ flowchart TB
 	B --> C[Begin Loop]
 	C --> D[Display Prompt]
 	D --> E[Read Input]
-	E --> F{Read Success?}
-	F -- No --> G[Free/Exit]
-	F -- Yes --> H[Tokenize Input]
+	E --> F{Read Failure/EOF?}
+	F -- Yes --> G[Free/Error/Exit]
+	F -- No --> H[Tokenize Input]
 	H --> I{Tokenization Success?}
-	I -- No --> J[Free/Continue]
+	I -- No --> J[Free/Error/Continue]
 	I -- Yes --> K[Check for Built-Ins]
 	K --> L{Built-In Found?}
 	L -- Yes --> M[Execute Built-In]
@@ -38,13 +38,13 @@ flowchart TB
 	P -- Yes --> R[Fork Process]
 	R --> S{Fork Success?}
 	S -- No --> T[Free/Error/Continue]
-	S -- Yes --> U{Child Process Success?}
-	U -- Yes --> V[Execute]
-	V --> W{Execution Success?}
-	W -- No --> X[Free/Error/Continue]
+	S -- Yes --> U{Child Process?}
+	U -- Yes --> Z[Execute Command]
+	Z --> W{Execution Success?}
+	W -- No --> X[Free/Error/Exit]
 	W -- Yes --> Y[SUCCESSFUL COMMAND EXECUTION]
-	U -- No --> Z[Parent Waits]
-	Z --> AA[Free/Update Status/Continue]
+	U -- No --> V[Parent Waits for Child]
+	V --> AA[Free/Update Status/Continue]
 	AA --> C
 	J --> C
 	N --> C
