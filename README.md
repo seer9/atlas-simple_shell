@@ -23,11 +23,11 @@ flowchart TB
 	B --> C[Begin Loop]
 	C --> D[Display Prompt]
 	D --> E[Read Input]
-	E --> F{Read Success?}
-	F -- No --> G[Free/Exit]
-	F -- Yes --> H[Tokenize Input]
+	E --> F{Read Failure/EOF?}
+	F -- Yes --> G[Free/Error/Exit]
+	F -- No --> H[Tokenize Input]
 	H --> I{Tokenization Success?}
-	I -- No --> J[Free/Continue]
+	I -- No --> J[Free/Error/Continue]
 	I -- Yes --> K[Check for Built-Ins]
 	K --> L{Built-In Found?}
 	L -- Yes --> M[Execute Built-In]
