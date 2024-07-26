@@ -20,6 +20,7 @@ int handle_builtins(char *input, char **tokens, int last_status)
 		if (tokens[1] != NULL) /* if exit status is provided */
 			exit_status = atoi(tokens[1]); /* convert to int */
 		free_mem(input, tokens); /* free all memory */
+		printf("The end is where we start from.\n");
 		exit(exit_status); /* exit gracefully */
 	}
 	else if (strcmp(tokens[0], "env") == 0) /* if input is "env" */

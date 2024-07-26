@@ -31,11 +31,14 @@ int main(void)
 			last_status = execute(tokens); /* call execute */
 			if (last_status == -1) /* if execution fails */
 			{
+				printf("Only those who will risk going too far can\n");
+				printf("possibly find out how far one can go.\n");
 				free_mem(input, tokens); /* set it free */
 				continue; /* wait for next command */
 			}
 		}
 		free_mem(input, tokens); /* set it free */
+		printf("The end is where we start from.\n");
 	}
 	return (0); /* exit success */
 }
