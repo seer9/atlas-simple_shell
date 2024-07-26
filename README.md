@@ -38,13 +38,13 @@ flowchart TB
 	P -- Yes --> R[Fork Process]
 	R --> S{Fork Success?}
 	S -- No --> T[Free/Error/Continue]
-	S -- Yes --> U{Child Process Success?}
-	U -- Yes --> V[Execute Command]
-	V --> W{Execution Success?}
-	W -- No --> X[Free/Error/Continue]
+	S -- Yes --> U{Child Process?}
+	U -- Yes --> Z[Execute Command]
+	Z --> W{Execution Success?}
+	W -- No --> X[Free/Error/Exit]
 	W -- Yes --> Y[SUCCESSFUL COMMAND EXECUTION]
-	U -- No --> Z[Parent Waits]
-	Z --> AA[Free/Update Status/Continue]
+	U -- No --> V[Parent Waits for Child]
+	V --> AA[Free/Update Status/Continue]
 	AA --> C
 	J --> C
 	N --> C
