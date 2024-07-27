@@ -41,7 +41,7 @@ TS SHELLIOT $
 
 ## Flowchart
 
-![FlowChart](https://github.com/seer9/atlas-simple_shell/blob/main/flowchart.svg)
+![FlowChart](https://github.com/seer9/atlas-simple_shell/blob/main/flowchart.png)
 
 ## Authors
 
