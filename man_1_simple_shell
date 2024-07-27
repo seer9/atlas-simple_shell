@@ -1,0 +1,51 @@
+.TH SIMPLE_SHELL 1 "July 2024" "1.0" "T.S. SHELLiot Manual"
+.SH NAME
+simple_shell \- a simple Unix shell implementation in C
+
+.SH LIBRARIES
+<stdio.h>
+
+<stdlib.h>
+
+<string.h>
+
+<unistd.h>
+
+<sys/wait.h>
+
+<sys/types.h>
+
+<fcntl.h>
+
+<errno.h>
+
+<sys/stat.h>
+
+<stdarg.h>
+
+
+.SH DESCRIPTION
+The \fBsimple_shell\fP program is a basic shell implementation in C. It allows the user to enter commands, tokenize the input, execute the commands, and display environment variables.
+
+.SH FUNCTIONS
+.nf
+\fB#include "shell.h"\fP
+\fBint main(void);\fP
+\fBvoid display_prompt(void);\fP
+\fBchar *read_input(void);\fP
+\fBint check_EOF(void);\fP
+\fBint tokenize_input(char *input, char ***tokens);\fP
+\fBint handle_builtins(char *input, char **tokens, int last_status);\fP
+\fBchar *find_executable(char *command);\fP
+\fBint execute(char **tokens);\fP
+\fBvoid free_mem(char *input, char **tokens);\fP
+.fi
+
+.SH EXAMPLES
+
+.SH SEE ALSO
+isatty(3), getline(3), malloc(3), free(3), strdup(3), strtok(3), fork(2), execve(2), waitpid(2), access(2), 
+
+.SH AUTHORS
+Nash Thames <taylor.thames@atlasschool.com>
+Clay Sexton <clay.sexton@atlasschool.com>
