@@ -18,13 +18,13 @@ int main(void)
 	{
 		display_prompt(); /* call display_prompt */
 		input = read_input(); /* call read_input */
-		if (input == NULL) /* if failed or EOF */
+		if (input == NULL) /* if input is NULL */
 		{
-			if (check_EOF() == 1) /* if EOF flag is flying */
+			if (check_EOF() == 1) /* see if EOF flag is flying */
 			{
-				printf("This is the way the world ends,\n");
+				printf("This is the way the world ends\n");
 				printf("Not with a bang but a whimper.\n");
-				exit(EXIT_SUCCESS); /* exit gracefully */
+				exit(EXIT_SUCCESS); /* salute and exit gracefully */
 			}
 			continue; /* if no EOF, wait for next command */
 		}
@@ -34,7 +34,7 @@ int main(void)
 			free_mem(input, tokens); /* set it free */
 			continue; /* wait for next command */
 		}
-		if (handle_builtins(input, tokens, last_status) == 0) /* builtins */
+		if (handle_builtins(input, tokens, last_status) == 0) /* built-ins */
 		{
 			last_status = execute(tokens); /* call execute */
 			if (last_status == -1) /* if execution fails */
@@ -43,7 +43,7 @@ int main(void)
 				continue; /* wait for next command */
 			}
 		}
-		free_mem(input, tokens); /* set it free */
+		free_mem(input, tokens); /* set it all free */
 		printf("The end is where we start from.\n");
 	}
 	return (0); /* exit success */

@@ -1,4 +1,4 @@
-# Simple Shell Project
+# T.S. SHELLiot - Is it Code... or Poetry?
 
 >*"If you aren't in over your head, how do you know how tall you are?"*<br>
 \-T.S. Eliot
