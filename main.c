@@ -20,9 +20,13 @@ int main(void)
 		input = read_input(); /* call read_input */
 		if (input == NULL) /* if failed or EOF */
 		{
-			printf("This is the way the world ends,\n");
-			printf("Not with a bang but a whimper.\n");
-			exit(EXIT_SUCCESS); /* exit gracefully */
+			if (check_EOF() == 1) /* if EOF flag is flying */
+			{
+				printf("This is the way the world ends,\n");
+				printf("Not with a bang but a whimper.\n");
+				exit(EXIT_SUCCESS); /* exit gracefully */
+			}
+			continue; /* if no EOF, wait for next command */
 		}
 		token_count = tokenize_input(input, &tokens); /* call tokenize_input */
 		if (token_count == -1) /* if tokenization fails */

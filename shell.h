@@ -20,9 +20,9 @@ extern char **environ; /* environment variables */
 
 /* Prototypes */
 int main(void);
-void init_shell(char **env_list, char **path, char **path_array);
 void display_prompt(void);
 char *read_input(void);
+int check_EOF(void);
 int tokenize_input(char *input, char ***tokens);
 int handle_builtins(char *input, char **tokens, int last_status);
 char *find_executable(char *command);
