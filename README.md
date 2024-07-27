@@ -42,7 +42,7 @@ TS SHELLIOT $
 ## Flowchart
 
 ```
-![FlowChart](Atlas-Simple_Shell.png)
+![FlowChart](flowchart.svg)
 ```
 
 ## Authors
