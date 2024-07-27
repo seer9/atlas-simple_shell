@@ -41,41 +41,8 @@ TS SHELLIOT $
 
 ## Flowchart
 
-```mermaid
-flowchart TB
-	A[Start Shell] --> B[Initialize Variables]
-	B --> C[Begin Loop]
-	C --> D[Display Prompt]
-	D --> E[Read Input]
-	E --> F{Read Failure/EOF?}
-	F -- Yes --> G[Free/Error/Exit]
-	F -- No --> H[Tokenize Input]
-	H --> I{Tokenization Success?}
-	I -- No --> J[Free/Error/Continue]
-	I -- Yes --> K[Check for Built-Ins]
-	K --> L{Built-In Found?}
-	L -- Yes --> M[Execute Built-In]
-	M --> N[Free/Continue]
-	L -- No --> O[Search for Executable]
-	O --> P{Executable Found?}
-	P -- No --> Q[Free/Error/Continue]
-	P -- Yes --> R[Fork Process]
-	R --> S{Fork Success?}
-	S -- No --> T[Free/Error/Continue]
-	S -- Yes --> U{Execve Success?}
-	U -- Yes --> Z[Execute Command]
-	Z --> W{Execution Success?}
-	W -- No --> X[Free/Error/Continue]
-	W -- Yes --> Y[Free/SUCCESS/Continue]
-	U -- No --> V[Parent Waits for Child]
-	V --> AA[Free/Status/Continue]
-	AA --> C
-	J --> C
-	N --> C
-	Q --> C
-	T --> C
-	X --> C
-	Y --> C
+```
+![FlowChart](Atlas-Simple_Shell.png)
 ```
 
 ## Authors
