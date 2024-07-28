@@ -15,7 +15,6 @@ void free_mem(char *input, char **tokens)
 	if (input != NULL) /* if input string exists */
 	{
 		free(input); /* free input string */
-		input = NULL; /* handle dangling pointer */
 	}
 	if (tokens != NULL) /* if token array exists */
 	{
@@ -24,6 +23,5 @@ void free_mem(char *input, char **tokens)
 			free(tokens[i]); /* free each token */
 		}
 		free(tokens); /* free token array */
-		tokens = NULL; /* handle dangling pointer */
 	}
 }

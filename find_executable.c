@@ -9,13 +9,13 @@
 
 char *find_executable(char *command)
 {
-	/* ptrs to PATH, dup of PATH, each directory, full path */
+	/* ptrs to PATH, dup of PATH, directory index, full path */
 	char *path = NULL, *path_dup = NULL, *dir = NULL, *full_path = NULL;
 	size_t path_len = 5, i ; /* length of PATH, path counter */
 
 	for (i = 0; environ[i] != NULL; i++) /* loop through environment variables */
 	{
-		if (strncmp(environ[i], "PATH=", path_len) == 0) /* if variable is PATH */
+		if (strncmp(environ[i], "PATH=", path_len) == 0) /* when PATH is found */
 		{
 			path = environ[i] + path_len; /* point to the start of the PATH */
 			break; /* stop looking */
@@ -27,7 +27,7 @@ char *find_executable(char *command)
 	dir = strtok(path_dup, ":"); /* split PATH into usable strings */
 	while (dir != NULL) /* loop through each directory */
 	{
-		full_path = malloc(strlen(dir) + strlen(command) + 2); /* for full path */
+		full_path = malloc(strlen(dir) + 1 + strlen(command) + 1); /* full path */
 		if (full_path == NULL) /* if malloc fails */
 		{
 			free(path_dup); /* free the duplicate PATH */
