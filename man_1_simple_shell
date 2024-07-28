@@ -35,11 +35,13 @@ The \fBT.S. SHELLiot\fP is a custom Unix shell that brings the essential feature
 
 .SH EXAMPLE
 \fBTS SHELLIOT $ echo "For us there is only the trying. The rest is not our business."
+
 This command prints the highly relevant quote from T.S. Eliot.
 
 .SH SEE ALSO
 sh(1), bash(1), isatty(3), getline(3), malloc(3), free(3), strdup(3), strtok(3), fork(2), execve(2), waitpid(2), access(2), 
 
 .SH AUTHORS
-.BR Nash Thames <taylor.thames@atlasschool.com>
-.BR Clay Sexton <clay.sexton@atlasschool.com>
+Nash Thames <taylor.thames@atlasschool.com>
+
+Clay Sexton <clay.sexton@atlasschool.com>
